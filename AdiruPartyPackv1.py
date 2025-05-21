@@ -4,9 +4,6 @@ import string
 from aiogram import Bot, Dispatcher, types
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.utils import executor
-
-from fastapi import FastAPI
-import uvicorn
     
 
 API_TOKEN = '8014478328:AAEUOEx0p_LEzV63TMFQaVE6TslU6QlmcbY'
@@ -1923,4 +1920,3 @@ async def show_final_results(code):
 if __name__ == '__main__':
     print("Бот запущен...")
     executor.start_polling(dp, skip_updates=True)
-    uvicorn.run(app, host="0.0.0.0", port=8000)
