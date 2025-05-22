@@ -27,6 +27,7 @@ pip install aiogram=2.25.2
 pip install -r requirements.txt
 
 4. Запуск
+   
 cd AdiruPartyPack
 
 python app.py
