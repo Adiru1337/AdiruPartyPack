@@ -10,6 +10,7 @@ pkg install rust -y
 2. Создание и активация виртуального окружения (рекомендуется)
    
 python -m venv venv
+
 source venv/bin/activate
 
 3. Установка зависимостей
@@ -27,7 +28,8 @@ pip install -r requirements.txt
 
 4. Запуск
 cd AdiruPartyPack
-Python app.py
+
+python app.py
 
 Как обновить AdiruPartyPack:
 rm -rf AdiruPartyPack
