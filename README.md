@@ -1,24 +1,37 @@
-Установи git, если ещё не установлен:
-pkg update && pkg upgrade
-pkg install git
+1. Подготовка окружения
+Открой Termux и обнови пакеты:
 
-Склонируй репозиторий:
-git clone https://github.com/Adiru1337/AdiruPartyPack.git
+pkg update && pkg upgrade -y
 
-Перейди в папку с проектом:
-cd AdiruPartyPack
+pkg install python git -y
 
-Установи Python (если ещё не установлен) и виртуальное окружение
-pkg install python
-python3 -m venv venv
+pkg install rust -y
+
+2. Создание и активация виртуального окружения (рекомендуется)
+   
+python -m venv venv
 source venv/bin/activate
 
-В папке проекта, если есть файл requirements.txt, то:
-pip install --upgrade pip
+3. Установка зависимостей
+Установка aiogram и aiohttp с обходом ошибок сборки:
+
+AIOHTTP_NO_EXTENSIONS=1 pip install aiohttp
+
+Далее устанавливаем aiogram:
+
+pip install aiogram=2.25.2
+
+Установка остальных зависимостей из requirements.txt
+
 pip install -r requirements.txt
 
-Если файла нет, можно установить вручную нужные пакеты, например:
-pip install aiogram fastapi uvicorn
+4. Запуск
+cd AdiruPartyPack
+Python app.py
 
-Если это Telegram бот на aiogram, запускай так:
-python AdiruPartyPack.py
+Как обновить AdiruPartyPack:
+rm -rf AdiruPartyPack
+git clone https://github.com/Adiru1337/AdiruPartyPack.git
+
+
+
