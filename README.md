@@ -32,7 +32,9 @@ cd AdiruPartyPack
 python app.py
 
 Как обновить AdiruPartyPack:
+
 rm -rf AdiruPartyPack
+
 git clone https://github.com/Adiru1337/AdiruPartyPack.git
 
 
