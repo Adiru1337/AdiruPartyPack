@@ -1,3 +1,5 @@
+https://raw.githubusercontent.com/Adiru1337/AdiruPartyDraw/refs/heads/main/partypack.png
+
 1. Подготовка окружения
 Открой Termux и обнови пакеты:
 
