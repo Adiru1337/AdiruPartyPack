@@ -1,4 +1,15 @@
-https://raw.githubusercontent.com/Adiru1337/AdiruPartyDraw/refs/heads/main/partypack.png
+# AdiruPartyPack V2.0
+
+![AdiruPartyPack](https://raw.githubusercontent.com/Adiru1337/AdiruPartyDraw/refs/heads/main/partypack.png)
+
+---
+
+## Подготовка окружения
+
+1. Открой Termux и обнови пакеты:
+
+```bash
+pkg update && pkg upgrade -y
 
 1. Подготовка окружения
 Открой Termux и обнови пакеты:
@@ -43,4 +54,8 @@ git clone https://github.com/Adiru1337/AdiruPartyPack.git
 AdiruPartyPack V2.0
 
 Обновления вряд-ли будут, геморойный проект заебало
+
+
+---
+
 
