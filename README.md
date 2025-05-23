@@ -1,4 +1,5 @@
 # AdiruPartyPack V2.0
+# Python 3.11.9
 
 ![AdiruPartyPack](https://raw.githubusercontent.com/Adiru1337/AdiruPartyDraw/refs/heads/main/partypack.png)
 
