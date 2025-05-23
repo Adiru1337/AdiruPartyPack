@@ -126,24 +126,6 @@ async def kick_player(message: types.Message):
     
     await message.reply("Выберите игрока, которого хотите исключить:", reply_markup=kb)
 
-# 3. Команда /kick
-@dp.message_handler(commands=['kick'])
-async def kick_player(message: types.Message):
-    user_id = message.from_user.id
-    code, lobby = find_lobby_by_host(user_id)
-    
-    if not lobby:
-        await message.reply("Вы не являетесь хостом какого-либо лобби.")
-        return
-    
-    # Создаем клавиатуру с игроками для кика
-    kb = InlineKeyboardMarkup(row_width=1)
-    for pid, name in lobby['players'].items():
-        if pid != user_id:  # Нельзя кикнуть себя
-            kb.add(InlineKeyboardButton(name, callback_data=f"kick_{code}_{pid}"))
-    
-    await message.reply("Выберите игрока, которого хотите исключить:", reply_markup=kb)
-
 @dp.callback_query_handler(lambda c: c.data.startswith("kick_"))
 async def process_kick(callback: types.CallbackQuery):
     _, code, kicked_id = callback.data.split("_")
