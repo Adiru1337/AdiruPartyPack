@@ -91,8 +91,26 @@ async def handle_invite(callback: types.CallbackQuery):
     await callback.answer("💬 Сообщение готово, пересылай его в нужный чат.")
 
 # 2. Команда /restart
+import os
+import sys
+from aiogram import types
+
 @dp.message_handler(commands=['restart'])
 async def restart_bot(message: types.Message):
+    user_id = message.from_user.id
+    code, lobby = find_lobby_by_host(user_id)
+    await message.reply("🔄 Бот перезапускается...")
+
+    # Убедитесь, что сообщение отправилось перед перезапуском
+    await dp.storage.close()
+    await dp.storage.wait_closed()
+
+    # Реальный рестарт
+    os.execv(sys.executable, [sys.executable] + sys.argv)
+
+# 3. Команда /kick
+@dp.message_handler(commands=['kick'])
+async def kick_player(message: types.Message):
     user_id = message.from_user.id
     code, lobby = find_lobby_by_host(user_id)
     
@@ -100,16 +118,13 @@ async def restart_bot(message: types.Message):
         await message.reply("Вы не являетесь хостом какого-либо лобби.")
         return
     
-    # Сбрасываем состояние игры
-    lobby['started'] = False
-    lobby['current_round'] = 0
-    lobby['answers'] = {}
-    lobby['votes'] = {}
-    lobby['questions'] = []
-    lobby['results'] = {}
-    lobby['round_winners'] = {}
+    # Создаем клавиатуру с игроками для кика
+    kb = InlineKeyboardMarkup(row_width=1)
+    for pid, name in lobby['players'].items():
+        if pid != user_id:  # Нельзя кикнуть себя
+            kb.add(InlineKeyboardButton(name, callback_data=f"kick_{code}_{pid}"))
     
-    await message.reply("🔄 Игра перезапущена! Выберите новый режим:", reply_markup=mode_selection_kb())
+    await message.reply("Выберите игрока, которого хотите исключить:", reply_markup=kb)
 
 # 3. Команда /kick
 @dp.message_handler(commands=['kick'])
