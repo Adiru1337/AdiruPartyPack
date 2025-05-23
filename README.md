@@ -38,5 +38,5 @@ rm -rf AdiruPartyPack
 
 git clone https://github.com/Adiru1337/AdiruPartyPack.git
 
-
+Обновления вряд-ли будут, геморойный проект заебало
 
