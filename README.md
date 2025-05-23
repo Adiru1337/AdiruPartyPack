@@ -7,6 +7,14 @@
 
 ## Подготовка окружения
 
+# Использовать Python 3.11
+```bash
+pyenv install 3.11.9
+pyenv virtualenv 3.11.9 aiogram-env
+pyenv activate aiogram-env
+pip install aiogram==2.25.2
+```
+
 1. Открой Termux и обнови пакеты:
 
 
@@ -50,6 +58,7 @@ rm -rf AdiruPartyPack
 
 git clone https://github.com/Adiru1337/AdiruPartyPack.git
 ```
+
 # AdiruPartyPack V2.0
 
 Обновления вряд-ли будут, геморойный проект заебало
