@@ -10,7 +10,7 @@ import logging
 logging.basicConfig(level=logging.INFO)  # Или DEBUG для более подробного вывода
 logger = logging.getLogger(__name__)
 
-API_TOKEN = '8014478328:AAEUOEx0p_LEzV63TMFQaVE6TslU6QlmcbY'
+API_TOKEN = ''
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
